@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SAVIVE.PaginaCambioContrasena">
+
+    
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="End"  Spacing="10" Margin="0,0,10,0" >
+            <Image Source="logotipo_navigationbar.png"  HorizontalOptions="End" HeightRequest="40" WidthRequest="40"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout >
+            <StackLayout Margin="0,40,0,60">
+                <Label/>
+                <Label Text="Cambio de contraseña" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout >
+                <Label Text="Ingrese su contraseña actual" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Margin="18,0,0,0" FontSize="Medium"/>
+                <Entry Placeholder="                contraseña actual" HorizontalOptions="FillAndExpand" Margin="50,0"  IsPassword="True" />
+            </StackLayout>
+            <StackLayout >
+                <Label x:Name="lbl_new_pass" Text="Ingrese su nueva contraseña" HorizontalOptions="CenterAndExpand"  Margin="18,0,0,0" FontSize="Medium"/>
+                <Entry x:Name="ent_new_pass" Placeholder="                nueva contraseña" HorizontalOptions="FillAndExpand" Margin="50,0" IsPassword="True"/>
+                <Label/>
+
+                <Label x:Name="lbl_conf_pass" Text="Confirme su nueva contraseña" HorizontalOptions="CenterAndExpand" Margin="18,0,0,0" FontSize="Medium"/>
+                <Entry x:Name="ent_conf_pass" Placeholder="                     confirmación" HorizontalOptions="FillAndExpand" Margin="50,0" IsPassword="True"/>
+            </StackLayout>
+            <Button x:Name="btn_aceptar" Text="Aceptar" HorizontalOptions="FillAndExpand" Clicked="btn_aceptar_Clicked" Margin="10,30,10,0" BackgroundColor="#7FE0AA00"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

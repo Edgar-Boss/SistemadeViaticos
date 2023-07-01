@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:globales="clr-namespace:SAVIVE.Views.Globales"
+             x:Class="SAVIVE.PaginaSubirSol">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="End"  Spacing="10" Margin="0,0,10,0" >
+            <Image Source="logotipo_navigationbar.png"  HorizontalOptions="End" HeightRequest="40" WidthRequest="40" Margin="0,0,3,0"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout Spacing="0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <ProgressBar HorizontalOptions="FillAndExpand" x:Name="barra_progreso1" Progress="1" ProgressColor="#7FE0AA00" Margin="5,0,0,0"/>
+                    <ProgressBar HorizontalOptions="FillAndExpand" x:Name="barra_progreso2" Progress="1" ProgressColor="#7FE0AA00"/>
+                    <ProgressBar HorizontalOptions="FillAndExpand" x:Name="barra_progreso3" Progress="1" ProgressColor="#7FE0AA00"/>
+                    <ProgressBar HorizontalOptions="FillAndExpand" x:Name="barra_progreso4" Progress="0" ProgressColor="#7FE0AA00" Margin="0,0,5,0"/>
+                </StackLayout>
+                <Label  x:Name="lbl_fecha"
+                    Text="Heroica Puebla de Z. a 11 &#10;de Octubre del 2022"
+                    FontSize="20"
+                    HorizontalOptions="Center" HorizontalTextAlignment="Center"
+                    Margin="0,10,0,0"/>
+                <Label Text="Nombre de quien recibe" 
+                   FontSize="15"
+                   Margin="13,15,10,0"/>
+                <Entry  x:Name="ent_nombre"
+                    Margin="10,0,10,0"
+                    IsReadOnly="True"
+                   />
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Area o sucursal" 
+                   FontSize="15"
+                   Margin="10,10,10,0"/>
+                    <Entry x:Name="ent_area" 
+                       Margin="10,0,10,0" 
+                       WidthRequest="235"
+                       IsReadOnly="True"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label  Text="Dirección" 
+                        FontSize="15"
+                        Margin="10,10,10,0"/>
+                    <Entry  x:Name="ent_direccion"
+                        Margin="10,0,10,0" 
+                        WidthRequest="275"
+                        IsReadOnly="True"/>
+                </StackLayout>
+
+                <Label Text="Total" 
+                   FontSize="23"
+                   HorizontalOptions="Center" 
+                   Margin="0,10,0,0"
+                   />
+                <Frame HorizontalOptions="Center">
+                    <Label  x:Name="lbl_total"
+                        Text="$0000.00"/>
+                </Frame>
+                <Label  x:Name="lbl_numero_letra"
+                    FontSize="12"
+                    HorizontalOptions="CenterAndExpand"
+                    Margin="80,0"/>
+                <Label  Text="Autorización de solicitud"
+                    FontSize="22"
+                    HorizontalOptions="Center"
+                    Margin="0,20,0,0"/>
+                <Label Text="Usuario que autorizará la solicitud"
+                   HorizontalOptions="Center"
+                   Margin="0,10,0,0"/>
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal" >
+                    <Label Text="Usuario"
+                       Margin="0,20,0,0"/>
+                    <Picker  x:Name="pk_autorizar"
+                         WidthRequest="300"/>
+                </StackLayout>
+                <Label  Text="Observaciones"
+                    HorizontalOptions="Center"
+                    Margin="0,13,0,0"/>
+                <Frame HeightRequest="100">
+                    <Editor x:Name="edt_observaciones"/>
+                </Frame>
+                <Button x:Name="btn_aceptar"
+                     FontSize="12.5"
+                    Text="Aceptar"
+                    BackgroundColor="#7FE0AA00"
+                    HorizontalOptions="FillAndExpand"
+                    HeightRequest="44"
+                    Margin="0,10,0,0"
+                    Clicked="btn_aceptar_Clicked"/>
+
+            </StackLayout>
+            <globales:Validar x:Name="P_conexion" IsVisible="{Binding Sinconexion}"/>
+        </Grid>
+        
+        
+    </ContentPage.Content>
+</ContentPage>

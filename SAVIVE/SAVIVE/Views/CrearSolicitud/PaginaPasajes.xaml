@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:globales="clr-namespace:SAVIVE.Views.Globales"
+             x:Class="SAVIVE.PaginaPasajes">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Spacing="10" Margin="0,0,10,0" >
+            <Label Text="Pasajes" FontSize="22" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center" Margin="3,0,150,0"/>
+            <Image Source="logotipo_navigationbar.png"  HorizontalOptions="End" HeightRequest="40" WidthRequest="40" Margin="20,0,0,0"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout Spacing="0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <ProgressBar HorizontalOptions="FillAndExpand" x:Name="barra_progreso1" Progress="1" ProgressColor="#7FE0AA00" Margin="5,0,0,0"/>
+                    <ProgressBar HorizontalOptions="FillAndExpand" x:Name="barra_progreso2" Progress="1" ProgressColor="#7FE0AA00"/>
+                    <ProgressBar HorizontalOptions="FillAndExpand" x:Name="barra_progreso3" Progress="0" ProgressColor="#7FE0AA00"/>
+                    <ProgressBar HorizontalOptions="FillAndExpand" x:Name="barra_progreso4" Progress="0" ProgressColor="#7FE0AA00" Margin="0,0,5,0"/>
+                </StackLayout>
+                <Label Text="Destino y/o municipio" FontSize="18" Margin="20,20,0,0" />
+                <Picker x:Name="pk_destino" 
+                    HorizontalOptions="FillAndExpand" 
+                    Margin="10,0,0,0" 
+                    SelectedIndexChanged="pk_destino_SelectedIndexChanged"/>
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" RowSpacing="0">
+
+                        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <RadioButton  x:Name="rdb_autobus" IsChecked="True" Grid.Row="0" Grid.Column="0" Content="Autobus" FontSize="15" Margin="10,0,0,0" CheckedChanged="Rdb_checked"/>
+                            <RadioButton  x:Name="rdb_caseta" Grid.Row="0" Grid.Column="1" Content="Caseta" FontSize="15" Margin="10,0,0,0" CheckedChanged="Rdb_checked"/>
+                            <RadioButton  x:Name="rdb_taxi" Grid.Row="0" Grid.Column="2" Content="Taxi-Uber" FontSize="15" Margin="10,0,0,0" CheckedChanged="Rdb_checked"/>
+                        </Grid>
+
+                        <Label Text="Tarifa"
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           FontSize="18"
+                           Margin="20,10,0,0"/>
+                        <Entry  x:Name="ent_tarifa"
+                            Keyboard="Numeric"
+                            Margin="0,0,80,0"
+                            Text=""
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            TextChanged="ent_tarifa_TextChanged"/>
+
+                        <StackLayout Grid.Row="2" Grid.ColumnSpan="1" Orientation="Horizontal">
+                            <RadioButton  Content="Solo ida" IsChecked="True" FontSize="15" Margin="10,0,0,0" StyleId="1" CheckedChanged="Rdb_checked_ida"/>
+                            <RadioButton  Content="Ida y regreso" FontSize="15" Margin="10,0,0,0" StyleId="2" CheckedChanged="Rdb_checked_ida"/>
+                        </StackLayout>
+                    </Grid>
+                    <Grid Grid.Row="1" HorizontalOptions="Start">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <Label Text="Monto tarifa"
+                           FontSize="16"
+                           Margin="20,20,0,0"
+                           Grid.Column="0"
+                           Grid.Row="0"/>
+                        <Label x:Name="lbl_monto"
+                           Text="$ 0.00"
+                           FontSize="16"
+                           Margin="30,20,0,0"
+                           Grid.Column="1"
+                           Grid.Row="0"/>
+                        <Label Text="Subtotal &#10;por concepto"
+                           FontSize="16"
+                           Margin="20,0,0,0"
+                           Grid.Column="0"
+                           Grid.Row="1"/>
+                        <Label x:Name="lbl_subtot_conc"
+                           Text="$ 0.00"
+                           FontSize="16"
+                           Margin="30,8,0,0"
+                           Grid.Column="1"
+                           Grid.Row="1"/>
+                        <Label Text="Subtotal"
+                           FontSize="16"
+                           Margin="20,0,0,0"
+                           Grid.Column="0"
+                           Grid.Row="2"/>
+                        <Label x:Name="lbl_subtot"
+                           Text="$ 0.00"
+                           FontSize="16"
+                           Margin="30,0,0,0"
+                           Grid.Column="1"
+                           Grid.Row="2"/>
+                        <Button x:Name="btn_agregar"
+                            Text="agregar"
+                            FontAttributes="None"
+                            HeightRequest="50"
+                            WidthRequest="90"
+                            HorizontalOptions="End"
+                            Grid.Column="2"
+                            Grid.Row="2"
+                            Clicked="btn_agregar_Clicked"/>
+                    </Grid>
+
+                    <Frame Grid.Row="2" Grid.ColumnSpan="1" HeightRequest="250" BackgroundColor="#F6FBF4" >
+                        <CollectionView ItemsSource="{Binding Pasaje}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame Padding="5"
+                                   CornerRadius="20"
+                                   IsClippedToBounds="False"
+                                   BackgroundColor="WhiteSmoke"
+                                   Margin="0,0,0,10"
+                                    Grid.ColumnSpan="1">
+
+                                        <Grid  Padding="15" >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Label  Grid.Column="0"
+                                            FontSize="Large"
+                                            Text="{Binding Destino}"
+                                            TextTransform="Uppercase"
+                                            VerticalOptions="Center"
+                                            FontAttributes="Bold"/>
+                                            <Label  Grid.Row="1"
+                                            Grid.Column="0"
+                                            FontSize="15"
+                                            FontAttributes="Italic"
+                                            Text="{Binding Transporte}"/>
+                                            <Label  Grid.Row="2"
+                                            Grid.Column="0"
+                                            FontSize="15"
+                                            Text="{Binding Tarifa}"/>
+
+                                            <Label  HorizontalOptions="Start"
+                                                FontSize="17"
+                                                Text="{Binding Ida_v}"
+                                                Grid.Row="3"
+                                                Grid.Column="0"/>
+
+                                        </Grid>
+                                    </Frame>
+
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+
+                        </CollectionView>
+                    </Frame>
+
+                </Grid>
+                <Button 
+                    FontSize="12.5"
+                    Text="Aceptar"
+                    BackgroundColor="#7FE0AA00"
+                    HorizontalOptions="FillAndExpand"
+                    HeightRequest="44"
+                    Margin="0,5,0,5"
+                    Clicked="btn_aceptar_Clicked"/>
+            </StackLayout>
+            <globales:Validar x:Name="P_conexion" IsVisible="{Binding Sinconexion}"/>
+
+
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>

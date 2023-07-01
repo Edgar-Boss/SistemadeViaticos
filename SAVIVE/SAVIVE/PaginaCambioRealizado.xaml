@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SAVIVE.PaginaCambioRealizado">
+    <ContentPage.Content>
+        <StackLayout  HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+            <Label  Text = "Cambio de contraseña  &#10;realizado con exito"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center"
+                    Margin="0,20,0,0"/>
+            <Image Source="check" 
+                   HeightRequest="65"
+                   Margin="0,13,0,0"/>
+
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <Button Text="aceptar"
+                    WidthRequest="130"
+                    HeightRequest="40"
+                    BackgroundColor="#7FE0AA00"
+                    Margin="0,80,0,0"/>
+
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

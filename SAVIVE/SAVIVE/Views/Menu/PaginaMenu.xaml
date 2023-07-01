@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:globales="clr-namespace:SAVIVE.Views.Globales"
+             x:Class="SAVIVE.PaginaMenu" >
+    
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Spacing="10" Margin="0,0,10,0" >
+            
+            <Label Text="Bienvenido" FontSize="26" TextColor="White" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" Margin="95,0,50,0"/>
+            <Image Source="logotipo_navigationbar.png"  HorizontalOptions="End" HeightRequest="40" WidthRequest="40" Margin="0,0,0,0"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <Grid >
+        <StackLayout Spacing="0">
+            <StackLayout.Background>
+                <LinearGradientBrush EndPoint="0,1"><!--3A89C9-->
+                    <GradientStop Color="#4B8673" Offset="0.01"/>
+                    <GradientStop Color="#fde07f" Offset="0.6" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+            <Grid RowSpacing="-1" VerticalOptions="EndAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="1.8*"/>
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0">
+                    <Label
+                    x:Name="titulo"
+                    TextColor="White"
+                    Text=""
+                    FontAttributes="Bold"
+                    FontFamily="Lobster"
+                    FontSize="25" 
+                    HorizontalTextAlignment="Center"
+                    VerticalOptions="Start"
+                    HorizontalOptions="FillAndExpand"
+                    BackgroundColor="Transparent"
+                    Margin="60,35,60,0"
+                    />
+                    <Label x:Name="lbl_puesto"
+                       TextColor="White"
+                       Text="Ejecutivo"
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Italic"
+                       Margin="0,0,0,0"
+                    />
+                </StackLayout>
+                <Grid ColumnDefinitions="*,90,*" VerticalOptions="End" HeightRequest="100" Padding="0" ColumnSpacing="0" >
+                    <yummy:PancakeView  HorizontalOptions="FillAndExpand" Grid.Column="0" CornerRadius="15,15,0,0"  BackgroundColor="White" Margin="0,0,0,0"/>
+                    <Image Grid.Column="1" HorizontalOptions="FillAndExpand" Source="toolbar" BackgroundColor="Transparent" Aspect="Fill"  Margin="0,10,0,0"/>
+                    <yummy:PancakeView  HorizontalOptions="FillAndExpand" Grid.Column="2" CornerRadius="15,15,0,0"  BackgroundColor="White" />
+                </Grid>
+
+                <Frame Grid.Row="0" VerticalOptions="Center"  HorizontalOptions="Center" BackgroundColor="Transparent" Margin="0,82,0,0" HeightRequest="80" WidthRequest="80" Padding="7" CornerRadius="50" HasShadow="False">
+                    <Image Source="user"/>
+                </Frame>
+                <StackLayout Grid.Row="1" Margin="0,0,0,0" BackgroundColor="#0000" VerticalOptions="EndAndExpand">
+                    <Grid  Margin="0,0,0,0" BackgroundColor="White" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="150"/>
+                            <RowDefinition Height="150"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions >
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Frame x:Name="frm_crarsol" Padding="30" StyleId="0" Margin="20,10,2,2"  CornerRadius="10">
+                            <Image Source="new_project_" BackgroundColor="White"/>
+                        </Frame >
+                        <Label Text="Crear solicitud"  VerticalOptions="End" FontSize="13" HorizontalOptions="Center" Margin="0,0,0,10"/>
+
+
+                        <Frame x:Name="frm_seguimiento" Grid.Column="1" Padding="30" StyleId="1"  Margin="2,10,20,2" BackgroundColor="White" CornerRadius="10">
+                            <Image Source="seguimiento_solicitud_"/>
+                        </Frame>
+                        <Label Grid.Column="1" Text="Seguimiento de solicitud" FontSize="13" VerticalOptions="End" HorizontalOptions="Center" Margin="-17,0,0,10"/>
+
+
+                        <Frame x:Name="frm_ubicacion" Grid.Row="1" Padding="35" StyleId="2" Margin="20,10,2,10" BackgroundColor="White" CornerRadius="10">
+                            <Image Source="location_"/>
+                        </Frame>
+                        <Label Grid.Row="1" Text="Reportes de ubicación" FontSize="13" VerticalOptions="End" HorizontalOptions="Center" Margin="20,0,0,10"/>
+
+
+                        <Frame x:Name="frm_pass" Grid.Row="1" Grid.Column="1"  Padding="35" StyleId="3" Margin="2,10,20,10" BackgroundColor="White" CornerRadius="10">
+                            <Image Source="password_"/>
+                        </Frame>
+                        <Label Grid.Column="1" Grid.Row="1" Text="Cambiar contraseña" FontSize="13" VerticalOptions="End" HorizontalOptions="Center" Margin="0,0,0,10" />
+
+                    </Grid>
+                </StackLayout>
+
+                <Button x:Name="btn_close"
+                    BackgroundColor="Transparent"
+                    TextTransform="Lowercase"
+                    Grid.Row="1"
+                    Text="x Cerrar sesión" 
+                    VerticalOptions="End"
+                    HorizontalOptions="End"
+                    TextColor="#6E980211"
+                    Margin="0,0,4,0"
+                    Clicked="btn_close_Clicked"/>
+            </Grid>
+
+            
+        </StackLayout>
+        <globales:Validar IsVisible="{Binding Sinconexion}" />
+
+    </Grid>
+   
+    
+
+</ContentPage>

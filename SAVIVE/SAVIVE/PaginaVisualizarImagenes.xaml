@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SAVIVE.PaginaVisualizarImagenes">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="End"  Spacing="10" Margin="0,0,10,0" >
+            <Image Source="logotipo_navigationbar.png"  HorizontalOptions="End" HeightRequest="40" WidthRequest="40"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content >
+        <StackLayout Padding="0" BackgroundColor="WhiteSmoke">
+            <Image x:Name="ImageToDisplay"
+                   HorizontalOptions="Start"
+                   VerticalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

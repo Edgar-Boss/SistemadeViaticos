@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SAVIVE.PaginaReportesUbicación"
+             Title="Menu">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="StartAndExpand"  Spacing="10" Margin="0,0,10,0" >
+            <Label Text="Ubicación" HorizontalOptions="Center" VerticalOptions="Center" TextColor="WhiteSmoke" FontSize="20"/>
+            <Image Source="logotipo_navigationbar.png"  HorizontalOptions="End" VerticalOptions="Center" HeightRequest="40" WidthRequest="40" Margin="150,0,0,0"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        
+        
+        <StackLayout >
+            <StackLayout Spacing="30" Margin="0,100,0,0">
+
+                <Label Text="Menú" FontSize="40" HorizontalOptions="Center"/>
+
+            </StackLayout>
+            <StackLayout VerticalOptions="CenterAndExpand" >
+                <Grid  Margin="10,60,10,500">
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="150" />
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Frame x:Name="frm_crarsol" Padding="30" StyleId="0" Margin="2">
+                        <Image Source="report_location.png"/>
+                    </Frame>
+                    <Label Text="Ver reportes de ubicaión"  VerticalOptions="End" HorizontalOptions="Center" Margin="0,8"/>
+
+                    <Frame x:Name="frm_seguimiento" Grid.Column="1" Padding="30" StyleId="1"  Margin="2">
+                        <Image Source="send_localization.png"/>
+                    </Frame>
+                    <Label Grid.Column="1" Text="Enviar un reporte "  VerticalOptions="End" HorizontalOptions="Center" Margin="0,8"/>
+
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="SAVIVE.Views.Ubicacion.PaginaEnviarReporte">
+    <ContentPage.Content>
+        <StackLayout>
+            <maps:Map x:Name="map" 
+                      HasScrollEnabled="True" 
+                      HasZoomEnabled="False"
+                      IsShowingUser="False"
+                      MoveToLastRegionOnLayoutChange="False"/>
+            <Grid ColumnDefinitions="Auto,*">
+                <Label Grid.Column="0" 
+                       Grid.Row="0" 
+                       Text="Ubicacion" 
+                       FontSize="16"
+                       Margin="0,12,0,0"/>
+                <Entry x:Name="ent_ubi"
+                       Grid.Column="1" 
+                       Grid.Row="0" 
+                       Placeholder="Ej.Sucursal Cardel" 
+                       PlaceholderColor="LightGray"
+                       FontSize="15"/>
+            </Grid>
+            <Button Text="Enviar ubicación" Clicked="Button_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

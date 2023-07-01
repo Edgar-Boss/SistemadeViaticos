@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SAVIVE.PaginaSolicitudRealizada">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="End"  Spacing="10" Margin="0,0,10,0" >
+            <Image Source="logotipo_navigationbar.png"  HorizontalOptions="End" HeightRequest="40" WidthRequest="40"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <Label  x:Name="lbl_fecha"
+                    Text="Heroica Puebla de Z. a 11 &#10;de Octubre del 2022"
+                    FontSize="20"
+                    HorizontalOptions="Center" HorizontalTextAlignment="Center"
+                    Margin="0,10,0,0"/>
+            <Label  Text="Solicitud realizada con éxito"
+                    HorizontalOptions="Center"
+                    Margin="0,30,0,10"/>
+            <Image  Source="success" HeightRequest="65"/>
+            <Label  
+                    Text="No. solicitud" 
+                    Margin="20,0,0,0"/>
+            <Frame  HorizontalOptions="Start" Margin="28,0,0,0" BorderColor="#00A8FF" Padding="12"><!--#00A8FF-->
+                <Label  x:Name="lbl_id_sol"
+                        Text="100" FontSize="18"/>
+            </Frame>
+            <Label  Text="Nombre de quien recibe"
+                    Margin="15,20,0,0"/>
+            <Frame  Padding="8" HorizontalOptions="StartAndExpand" WidthRequest="350" Margin="10,0">
+                <Label  x:Name="lbl_nombre"
+                        Text="Agustin Rosales Aldaranca"/>
+            </Frame>
+            <Label Text="Área o sucursal"
+                   Margin="15,20,0,0"/>
+            <Frame Padding="8" HorizontalOptions="StartAndExpand" WidthRequest="350" Margin="10,0">
+                <Label x:Name="lbl_area" Text="Dirección de administración"/>
+            </Frame>
+            <Label Text="Dirección"
+                   Margin="15,20,0,0"/>
+            <Frame Padding="8" HorizontalOptions="StartAndExpand" WidthRequest="350" Margin="10,0">
+                <Label x:Name="lbl_direccion" Text="Administración"/>
+            </Frame>
+            <Label Text="Total"
+                   FontSize="23"
+                   HorizontalOptions="Center"
+                   Margin="0,20,0,0"/>
+            <Frame HorizontalOptions="Center">
+                <Label x:Name="lbl_total"
+                       Text="$80.00"
+                       FontSize="20"
+                       FontAttributes="Bold"/>
+            </Frame>
+            <Label  x:Name="lbl_num_letra"
+                    Margin="30,0,20,0"
+                   HorizontalOptions="Center"/>
+            <Button CornerRadius="10"
+                    HorizontalOptions="Center" 
+                    Margin="0,30,0,0"
+                    x:Name="btn_aceptar"
+                    FontSize="12.5"
+                    Text="Aceptar"
+                    BackgroundColor="#7FE0AA00"
+                    WidthRequest="155"
+                    Clicked="btn_aceptar_Clicked"
+                    />
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

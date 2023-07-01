@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SAVIVE.Views.Globales.PantalladeCarga"
+              xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
+    
+    <Grid BackgroundColor="White" VerticalOptions="Fill">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop Color="#4B8673" Offset="0.4"/>
+                <GradientStop Color="#FDE07F" Offset="0.9" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".3*"/>
+            <RowDefinition Height=".3*"/>
+            <RowDefinition Height=".3*"/>
+        </Grid.RowDefinitions>
+        <!--<Label  VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                Text="Error al descargar datos, intentando de nuevo" 
+                Margin="10,10,0,0"/>-->
+        <Label  Grid.Row="0" Text="Descargando datos" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="End" 
+                    BackgroundColor="Transparent" 
+                    FontSize="17"
+                        TextColor="Black"/>
+        <!--<Frame Grid.Row="1"
+                       BackgroundColor="Transparent"
+                       Margin="0,0,0,0"
+                       CornerRadius="15"
+                       HasShadow="False"
+                       HorizontalOptions="Center"
+                       VerticalOptions="StartAndExpand"
+                       HeightRequest="150"
+                       WidthRequest="150"
+                       x:Name="Frame">
+                    <Image Source="logotipo_navigationbar.png" />
+                    <Frame.Triggers>
+                        <MultiTrigger TargetType="Frame" x:Name="tiger">
+                            <MultiTrigger.Conditions >
+                                <BindingCondition x:Name="condition" Binding="{Binding  EstadoRotar}" Value="true"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <triggers:Rotacioninfinita estado="True"/>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <triggers:Rotacioninfinita estado="false"/>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+                    </Frame.Triggers>
+                </Frame >-->
+        <lottie:AnimationView   Grid.Row="1"
+                                        Animation="ani_logo.json"
+                                        AutoPlay="True"
+                                        HeightRequest="150"
+                                        WidthRequest="150"
+                                        RepeatMode="Infinite"
+                                        VerticalOptions="Center"
+                                        Margin="0,30,0,10"
+                                        >
+
+        </lottie:AnimationView>
+        <Label TextColor="Black"
+                        FontSize="15"
+                       Grid.Row="2"
+                       Text="Espere un momento por favor ..." 
+                       BackgroundColor="Transparent" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="StartAndExpand" 
+                       Margin="0,0,0,0"/>
+
+    </Grid>
+</ContentView>

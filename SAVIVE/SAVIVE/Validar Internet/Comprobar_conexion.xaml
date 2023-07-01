@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:triggers="clr-namespace:SAVIVE.Triggers.Animaciones"
+             xmlns:globales="clr-namespace:SAVIVE.Views.Globales"
+             x:Class="SAVIVE.Comprobar_conexion">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="StartAndExpand" BackgroundColor="Black">
+            <!--<Label Text="conectado" IsVisible="{Binding Conectado}"/>-->
+            <globales:Validar IsVisible="{Binding Sinconexion}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

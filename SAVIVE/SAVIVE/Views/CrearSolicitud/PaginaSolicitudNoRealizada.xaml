@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SAVIVE.PaginaSolicitudNoRealizada">
+    <NavigationPage.TitleView >
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="End"  Spacing="10" Margin="0,0,10,0" >
+            <Image Source="logotipo_navigationbar.png"  HorizontalOptions="End" HeightRequest="40" WidthRequest="40"/>
+        </StackLayout>
+    
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label  x:Name="lbl_fecha"
+                    FontSize="20"
+                    HorizontalOptions="Center" HorizontalTextAlignment="Center"
+                    Margin="0,10,0,0"/>
+
+            <Label Text="La solicitud no pudo ser realizada &#10;por favor revise sus datos" 
+                   HorizontalTextAlignment="Center"
+                   Margin="0,20,0,10"/>
+            <Image Source="close" HeightRequest="65"/>
+            <Label Text="Detalles" Margin="10,60,0,0"/>
+            <Frame Margin="10" HeightRequest="150">
+                <Editor x:Name="edt_error" 
+                        TextColor="Gray"
+                        FontSize="Body"
+                        />
+            </Frame>
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Margin="0,80,0,0">
+                <Button x:Name="btn_aceptar" Text="Aceptar" BackgroundColor="#7FE0AA00" Clicked="btn_aceptar_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

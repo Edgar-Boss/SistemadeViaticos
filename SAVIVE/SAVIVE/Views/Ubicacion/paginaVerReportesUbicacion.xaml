@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SAVIVE.paginaVerReportesUbicacion">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="End"  Spacing="10" Margin="0,0,10,0" >
+            <Image Source="logotipo_navigationbar.png"  HorizontalOptions="End" HeightRequest="40" WidthRequest="40"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label  Text="Reportes de ubicacion"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    HorizontalOptions="CenterAndExpand" 
+                    Margin="0,20,0,0"/>
+            <StackLayout>
+                <Frame Padding="10,10,10,0" BackgroundColor="Transparent" >
+                    <CollectionView x:Name="cv_viaticos" ItemsSource="{Binding ubicaciones}" >
+                        <CollectionView.ItemTemplate >
+                            <DataTemplate>
+                                <Frame  Padding="5" CornerRadius="12" IsClippedToBounds="False" Margin="10,0,10,0" BackgroundColor="#F6FBF4" TabIndex="{Binding Idubicacion}" >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                    </Frame.GestureRecognizers>
+                                    <Grid RowDefinitions="*,*" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width=".1*"/>
+                                            <ColumnDefinition Width=".9*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" Grid.RowSpan="1"  FontSize="Large"
+                                            Text="{Binding Idubicacion}"
+                                            VerticalOptions="Center"
+                                            FontAttributes="Bold"/>
+                                        <Label  Grid.Column="1" FontSize="18"
+                                            Text="{Binding Ubicacion}"/>
+                                        <Label  Grid.Column="1" Grid.Row="1" FontSize="15"
+                                            Text="{Binding IdEmpleado}"/>
+                                        <Label  FontSize="15">
+
+                                        </Label>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

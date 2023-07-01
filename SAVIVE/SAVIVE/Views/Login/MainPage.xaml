@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SAVIVE.MainPage"
+             xmlns:globales="clr-namespace:SAVIVE.Views.Globales"
+             NavigationPage.HasNavigationBar="False" >
+
+    <StackLayout>
+
+        <Grid VerticalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="Start" Spacing="20" IsVisible="{Binding Conectado}">
+                <Label></Label>
+                <Frame BackgroundColor="Transparent" >
+                    <Image Source="logo_login.png"/>
+                </Frame>
+                <Label></Label>
+                <Label Text="Ingrese usuario " FontSize=" 20" HorizontalOptions="Center"/>
+                <Entry  x:Name="ent_user"
+                Placeholder="                     Usuario" 
+                HorizontalOptions="CenterAndExpand" 
+                WidthRequest="250"
+                HorizontalTextAlignment="Center"
+                Text="edgardiaz@financierasumate.com.mx"/>
+                <Label  Text="Ingrese su contraseña" 
+                FontSize=" 20" 
+                HorizontalOptions="Center"/>
+                <Entry  x:Name="ent_pass"
+                Placeholder="Contraseña"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="CenterAndExpand" 
+                WidthRequest="250"
+                IsPassword="True"
+                Text="1234"
+               />
+                <Label></Label>
+                <Label></Label>
+                <Label></Label>
+                <Button x:Name="btn_ingresar" 
+                Text="Ingresar" 
+                HorizontalOptions="Center" 
+                WidthRequest="200" 
+                HeightRequest="55" 
+                Clicked="btn_ingresar_Clicked"
+                BackgroundColor="#7FE0AA00"
+                CornerRadius="9"/>
+
+            </StackLayout>
+            <globales:PantalladeCarga x:Name="val" IsVisible="false"/>
+        </Grid>
+        
+
+
+        
+    </StackLayout>
+    
+</ContentPage>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SAVIVE.PaginaTomarFoto">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Source="{Binding Fotito}"> </Image>
+                <Button Text="Tomar foto" Command="{Binding CapturarComando}" Grid.Row="1"/>
+                <Label x:Name="lbl_path" Text="{Binding Path}" Grid.Row="2"/>
+                <Button x:Name="btn_lbl" Text="{Binding Path}" Command="{Binding CapturarPath}"></Button>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

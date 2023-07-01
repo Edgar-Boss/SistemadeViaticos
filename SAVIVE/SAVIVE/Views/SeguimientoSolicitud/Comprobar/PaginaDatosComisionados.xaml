@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             x:Class="SAVIVE.PaginaDatosComisionados">
+    
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Spacing="10" Margin="0,0,10,0" >
+            <Label Text="Detalles de viaticos" FontSize="22" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center" Margin="3,0,40,0"/>
+            <Image Source="logotipo_navigationbar.png"  HorizontalOptions="End" HeightRequest="40" WidthRequest="40" Margin="20,0,0,0"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand">
+
+                <Label  Text="No. Soicitud"
+                    HorizontalOptions="CenterAndExpand" 
+                    Margin="0,5,0,0"/>
+                <Frame HorizontalOptions="Center" Padding="20,15">
+                    <Label Text="{Binding idsolicitud}"
+                           FontSize="25"/>
+                </Frame>
+                <Grid ColumnDefinitions="2*,*">
+                    <microcharts:ChartView  x:Name="chart_"  
+                                            HeightRequest="150"/>
+                    <Grid Grid.Column="1" HeightRequest="60" RowSpacing="0" HorizontalOptions="Center" Margin="0,0,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height=".4*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height=".4*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <BoxView Grid.Row="0" Grid.Column="0" BackgroundColor="#19AEF9" WidthRequest="25"/>
+                        <Label Grid.Row="0" Grid.Column="1" Text="Total" />
+                        <Label x:Name="lbl_total"  Grid.Row="1" Grid.Column="1" Text="1000.00"  FontAttributes="Bold"/>
+                        <BoxView Grid.Row="2" Grid.Column="0" BackgroundColor="#A8F4B4" WidthRequest="25"/>
+                        <Label Grid.Row="2" Grid.Column="1" Text="Comprobado"/>
+                        <Label x:Name="lbl_comprobado" Grid.Row="3" Grid.Column="1" Text="$550.00" FontAttributes="Bold"/>
+                    </Grid>
+                </Grid>
+                <Label Text="No. Empleado"
+                   Margin="10,35,0,0"/>
+                <Label  Text="{Binding solicitante}"
+                        HorizontalOptions="StartAndExpand"
+                        WidthRequest="100"
+                        Margin="10,0,0,0"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="bold"/>
+                <Grid Margin="10,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".2*" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label  Text="  Nombre:"
+                        FontSize="16"
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Margin="0,0,0,0"/>
+
+                    <Label  x:Name="ent_nombre"
+                        Text="{Binding Nombre}"
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        FontSize="17"
+                        FontAttributes="Bold"
+                        Margin="0,16,0,0"
+                        />
+
+                </Grid>
+                <Grid Margin="10,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition Width="0.7*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label  Text="Area:"
+                            FontSize="16"
+                            Grid.Column="0"
+                            Grid.Row="0"
+                            Margin="0,10,0,0"/>
+                    <Label  x:Name="lbl_puesto"
+                            Text="{Binding Area}"
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            Margin="0,10,0,0"
+                            FontAttributes="Bold"/>
+                </Grid>
+                <Label  Text="Justificación"
+                    Margin="15,20,0,0"/>
+                <Frame  Margin=" 15,0 "
+                    HeightRequest="100">
+                    <Label x:Name="lbl_just" 
+                           Text="{Binding justificacion}"/>
+                </Frame>
+                <Button x:Name="btn_aceptar"
+                        Padding="0"
+                        HorizontalOptions="FillAndExpand"
+                        FontSize="12.5"
+                        Text="Subir Comprobantes"
+                        BackgroundColor="#7FE0AA00"
+                        HeightRequest="45"
+                        Margin="0,0,0,7"
+                        VerticalOptions="EndAndExpand"
+                        Clicked="btn_aceptar_Clicked"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

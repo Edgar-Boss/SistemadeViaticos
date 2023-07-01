@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SAVIVE.PaginaHospedajeMT">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label  Text="Hospedaje y manutención"
+                    HorizontalOptions="CenterAndExpand" 
+                    Margin="0,10,0,0"/>
+                <Frame BackgroundColor="White" HeightRequest="250" >
+                    <ScrollView>
+                        <StackLayout>
+                            <Frame Padding="10,10,10,0"  BackgroundColor="Transparent">
+                                <CollectionView x:Name="cv_viaticos" ItemsSource="{Binding DViaticos}" >
+                                    <CollectionView.ItemTemplate >
+                                        <DataTemplate>
+                                            <Frame  x:Name="frm_hospedaje" Padding="5" CornerRadius="12" IsClippedToBounds="False" Margin="10,0,10,0" BackgroundColor="#F6FBF4" TabIndex="{Binding Iddestino}" >
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="Hospedaje_Tapped" />
+                                                </Frame.GestureRecognizers>
+                                                <StackLayout>
+                                                    <Label  FontSize="Large"
+                                            Text="{Binding Destino}"
+                                            VerticalOptions="Center"
+                                            FontAttributes="Bold"/>
+                                                    <Label  FontSize="15"
+                                            Text="{Binding Zona}"/>
+                                                    <Label  FontSize="15"
+                                            Text="{Binding Costo}"/>
+                                                    <Label  FontSize="15"
+                                            Text="{Binding Dias}"/>
+                                                </StackLayout>
+                                            </Frame>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </Frame>
+                        </StackLayout>
+                    </ScrollView>
+                </Frame> <!--Hospedaje-->
+                <Label  Text="Transporte"
+                    HorizontalOptions="CenterAndExpand" 
+                    Margin="0,10,0,0"/>
+                <Frame BackgroundColor="White" HeightRequest="250" >
+                    <ScrollView>
+                        <StackLayout>
+                            <Frame Padding="10,10,10,0"  BackgroundColor="Transparent">
+                                <CollectionView x:Name="cv_pasajes" ItemsSource="{Binding DPasajes}" >
+                                    <CollectionView.ItemTemplate >
+                                        <DataTemplate>
+                                            <Frame  Padding="5" CornerRadius="12" IsClippedToBounds="False" Margin="10,0,10,0" BackgroundColor="#F6FBF4" TabIndex="{Binding Iddestino}">
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="Pasajes_Tapped" />
+                                                </Frame.GestureRecognizers>
+                                                <StackLayout>
+                                                    <Label  FontSize="Large"
+                                            Text="{Binding Destino}"
+                                            VerticalOptions="Center"
+                                            FontAttributes="Bold"/>
+                                                    <Label  FontSize="15"
+                                            Text="{Binding Transporte}"/>
+                                                    <Label  FontSize="15"
+                                            Text="{Binding _Ida}"/>
+                                                    <Label  FontSize="15"
+                                            Text="{Binding Tarifa}"/>
+                                                </StackLayout>
+                                            </Frame>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </Frame>
+                        </StackLayout>
+                    </ScrollView>
+                </Frame> <!--Transporte-->
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                    <Button x:Name="btn_aceptar"
+                            Text="Aceptar"
+                            BackgroundColor="#7FE0AA00"
+                            Clicked="btn_aceptar_Clicked"/>
+                    <Button x:Name="btn_subir"
+                            Text="Agregar"
+                            BackgroundColor="#7FE0AA00"
+                            />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

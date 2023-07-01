@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="SAVIVE.Views.Globales.Validar"
+             x:Name="pagina">
+
+    <Grid BackgroundColor="#7F4B7986" VerticalOptions="Fill">
+        <Grid.RowDefinitions>
+                    <RowDefinition Height=".3*"/>
+                    <RowDefinition Height=".3*"/>
+                    <RowDefinition Height=".3*"/>
+                </Grid.RowDefinitions>
+                <Label  Grid.Row="0" Text="Sin conexión a internet" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="End" 
+                    BackgroundColor="Transparent" 
+                    FontSize="17"
+                        TextColor="Black"/>
+               
+                <lottie:AnimationView   
+                    Grid.Row="1"
+                    Animation="wifi.json"
+                    AutoPlay="True"
+                    HorizontalOptions="Fill"
+                    RepeatMode="Infinite"
+                    VerticalOptions="Center"
+                    Margin="0,30,0,10">
+            
+                </lottie:AnimationView>
+        <Label TextColor="Black"
+                        FontSize="15"
+                       Grid.Row="2"
+                       Text="Esperando conexion a internet ..." 
+                       BackgroundColor="Transparent" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="StartAndExpand" 
+                       Margin="0,0,0,0"/>
+    </Grid>
+
+</ContentView>

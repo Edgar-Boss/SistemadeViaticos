@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:globales="clr-namespace:SAVIVE.Views.Globales"
+             x:Class="SAVIVE.PaginaCrearSolicitud">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Spacing="10" Margin="0,0,10,0" >
+            <Label Text="Personal" FontSize="22" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,143,0"/>
+            <Image Source="logotipo_navigationbar.png"  HorizontalOptions="End" HeightRequest="40" WidthRequest="40" Margin="20,0,0,0"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout Spacing="0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <ProgressBar HorizontalOptions="FillAndExpand" x:Name="barra_progreso1" Progress="0" ProgressColor="#7FE0AA00" Margin="5,0,0,0"/>
+                    <ProgressBar HorizontalOptions="FillAndExpand" x:Name="barra_progreso2" Progress="0" ProgressColor="#7FE0AA00"/>
+                    <ProgressBar HorizontalOptions="FillAndExpand" x:Name="barra_progreso3" Progress="0" ProgressColor="#7FE0AA00"/>
+                    <ProgressBar HorizontalOptions="FillAndExpand" x:Name="barra_progreso4" Progress="0" ProgressColor="#7FE0AA00" Margin="0,0,5,0"/>
+                </StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="38"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".4*"/>
+                        <ColumnDefinition Width=".6*"/>
+                    </Grid.ColumnDefinitions>
+                    <ImageButton x:Name="btn_buscar"
+                             Padding="8"
+                             Grid.Row="3"
+                             Grid.Column="1"
+                             Margin="-15,0,190,0"
+                             Source="lupa.png"
+                             BackgroundColor="Transparent"
+                             Clicked="btn_buscar_Clicked"/>
+                    <Label  Grid.Row="0"
+                            Text="Nombre"
+                            HorizontalOptions="Start" 
+                            FontSize="20"
+                            Margin="31,30,0,0"/>
+                    <Picker Grid.Row="1"
+                        Grid.ColumnSpan="2"
+                        x:Name="pk_nombres" 
+                        Margin="28,0"
+                        SelectedIndexChanged="pk_nombres_SelectedIndexChanged"/>
+                    <Label  Grid.Row="2"
+                        Text="No. empleado"
+                        Margin="33,10,0,0"/>
+                    <Entry  Grid.Row="3"
+                        x:Name="ent_buscar"
+                        Margin="30,0,0,0"
+                        Placeholder="Buscar"
+                        FontSize="15"/>
+                </Grid>
+
+                <Label  Text="Justificación"
+                    FontSize="15"
+                    Margin="30,10,0,0"/>
+                <Frame  Margin="20,10,20,0" HeightRequest="100" >
+                    <Editor x:Name="ent_justificacion"/>
+                </Frame>
+                <Button x:Name="btn_agregar"
+                    Text="Agregar"
+                    FontSize="10"
+                    HeightRequest="40"
+                    Margin="20,5,19,0"
+                    HorizontalOptions="End"
+                    Clicked="btn_agregar_Clicked"/>
+                <!--BackgroundColor="#7F4B8673"-->
+                <Label Text="Datos de los comisionados"
+                   Margin="25,0,0,0"/>
+                <Frame Padding="10,0,10,0" >
+                    <CollectionView ItemsSource="{Binding Comisionados}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame Padding="5"
+                                   CornerRadius="20"
+                                   IsClippedToBounds="False"
+                                   BackgroundColor="#F6FBF4"
+                                   Margin="0,0,0,10">
+                                    <Grid  Padding="15" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width=".2*" />
+                                            <ColumnDefinition Width=".7*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Image  Grid.RowSpan="4" 
+                                            Source="{Binding Image}" />
+                                        <Label  Grid.Column="1"
+                                            Grid.Row="0"
+                                            FontSize="Large"
+                                            Text="{Binding Name}"
+                                            VerticalOptions="Center"
+                                            FontAttributes="Bold"/>
+                                        <Label  Grid.Row="1"
+                                            Grid.Column="1"
+                                            FontSize="15"
+                                            FontAttributes="Italic"
+                                            Text="{Binding Puesto}"/>
+                                        <Label  Grid.Row="2"
+                                            Grid.Column="1"
+                                            FontSize="15"
+                                            Text="{Binding N_emp}"/>
+                                        <StackLayout    Grid.Row="3"
+                                                    Grid.Column="1"
+                                                    Orientation="Horizontal"
+                                                    BackgroundColor="Transparent">
+                                            <Label  HorizontalOptions="Start"
+                                                FontSize="17"
+                                                Text="{Binding Justificacion}"/>
+                                            <ImageButton    x:Name="btn_editar"
+                                                        ClassId="{Binding Id}" 
+                                                        Source="{Binding Edit}"
+                                                        IsVisible="{Binding Enable}"
+                                                        BackgroundColor="Transparent"
+                                                        HorizontalOptions="EndAndExpand"
+                                                        HeightRequest="15"
+                                                        WidthRequest="15"
+                                                        Clicked="btn_editar_Clicked"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+                </Frame>
+                <Button 
+                    FontSize="12.5"
+                    Text="Aceptar"
+                    BackgroundColor="#61E0AA00"
+                    HorizontalOptions="FillAndExpand"
+                    HeightRequest="40"
+                    Margin="0,5,0,5"
+                    Clicked="btn_aceptar_Clicked"
+                    />
+            </StackLayout>
+            <globales:Validar x:Name="P_conexion" IsVisible="{Binding Sinconexion}" />
+
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>

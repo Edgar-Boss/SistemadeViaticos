@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="SAVIVE.PaginasSolicitudes"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            xmlns:globales="clr-namespace:SAVIVE.Views.Globales"
+            android:TabbedPage.ToolbarPlacement="Bottom"             
+            >
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="End"  Spacing="10" Margin="0,0,10,0" >
+            <Image Source="logotipo_navigationbar.png"  HorizontalOptions="End" HeightRequest="40" WidthRequest="40"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage Title="Firmas" IconImageSource="firma.png">
+        <StackLayout>
+            
+            <Label Text="Solicitudes pendientes por &#10;firmar o/y autorizar"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,20,0,0"/>
+            <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Margin=" 0,8,0,0">
+                <Entry  
+                        HorizontalOptions="FillAndExpand" 
+                        Margin="15,0,0,0"
+                        PropertyChanged="ent_busc_PropertyChanged"/>
+                <ImageButton 
+                         HorizontalOptions="Start"
+                         Margin="0,0,15,0"
+                         Source="lupa"
+                         HeightRequest="20"
+                         BackgroundColor="Transparent"
+                         Clicked="btn_buscar_Clicked"
+                            />
+
+
+            </StackLayout>
+            <Frame Grid.Row="2" Grid.ColumnSpan="1" HeightRequest="530" BackgroundColor="#F6FBF4" >
+                <CollectionView ItemsSource="{Binding Comisionados}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Padding="5"
+                                   CornerRadius="20"
+                                   IsClippedToBounds="False"
+                                   BackgroundColor="#F6FBF4"
+                                   Margin="0,0,0,10">
+
+                                <Grid  Padding="15" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width=".2*" />
+                                        <ColumnDefinition Width=".7*"/>
+
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+
+                                    </Grid.RowDefinitions>
+                                    <Image  Grid.RowSpan="4" 
+                                            Source="{Binding Image}" />
+                                    <Label  Grid.Column="1"
+                                            FontSize="Large"
+                                            Text="{Binding Name}"
+                                            VerticalOptions="Center"
+                                            FontAttributes="Bold"/>
+                                    <Label  Grid.Row="1"
+                                            Grid.Column="1"
+                                            FontSize="15"
+                                            FontAttributes="Italic"
+                                            Text="{Binding Puesto}"/>
+                                    <Label  Grid.Row="2"
+                                            Grid.Column="1"
+                                            FontSize="15"
+                                            Text="{Binding N_emp}"/>
+                                    <StackLayout    Grid.Row="3"
+                                                    Grid.Column="1"
+                                                    Orientation="Horizontal"
+                                                    BackgroundColor="Transparent">
+                                        <Label  HorizontalOptions="Start"
+                                                FontSize="17"
+                                                Text="{Binding Justificacion}"/>
+
+
+
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+            </Frame>
+
+
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Estado" IconImageSource="estado.png"> <!--Estado de solicitudes-->
+        <Grid>
+            <StackLayout Spacing="0">
+                <Label Text="Estado de solicitudes"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,20,0,0"/>
+                <Frame   x:Name="frame" Grid.Row="2" Grid.ColumnSpan="1" HeightRequest="595" BackgroundColor="White" Padding="0,0,0,0" HasShadow="False">
+                    <CollectionView x:Name="cv" ItemsSource="{Binding Solicitudes}"  >
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame  Padding="5" CornerRadius="12" IsClippedToBounds="False" Margin="0,0,0,10" BackgroundColor="{Binding color}" TabIndex="{Binding IdSolicitud}">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Clic_frame"/>
+                                    </Frame.GestureRecognizers>
+                                    <Grid  Padding="15" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width=".2*" />
+                                            <ColumnDefinition Width=".7*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Label  Grid.Column="0"
+                                            FontSize="Large"
+                                            Text="{Binding IdSolicitud}"
+                                            VerticalOptions="Center"
+                                            FontAttributes="Bold"/>
+                                        <Label  Grid.Row="0"
+                                            Grid.Column="1"
+                                            FontSize="18"
+                                            FontAttributes="Bold"
+                                            Text="{Binding Autorizacion}"/>
+                                        <Label  Grid.Row="1"
+                                            Grid.Column="1"
+                                            FontSize="15"
+                                            Text="{Binding Justificacion}"/>
+                                        <StackLayout    Grid.Row="2"
+                                                    Grid.Column="1"
+                                                    Orientation="Horizontal"
+                                                    BackgroundColor="Transparent">
+                                            <Label  HorizontalOptions="Start"
+                                                FontSize="14"
+                                                Text="{Binding Fecha.Date}"/>
+
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Frame>
+                <Frame HasShadow="False" Padding="0" HeightRequest="33" Margin="0,0,0,0" >
+                    <StackLayout Orientation="Horizontal" Padding="0">
+                        <Frame x:Name="frm_activo" TabIndex="1" HasShadow="False" Margin="10,0,0,0" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                            <StackLayout Orientation="Horizontal">
+                                <Label HorizontalOptions="FillAndExpand" BackgroundColor="#B2BBDEFB"/>
+                                <Label HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="activo"/>
+                            </StackLayout>
+                        </Frame>
+                        <Frame x:Name="frm_pendiente" TabIndex="2" HasShadow="False" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal">
+                                <Label HorizontalOptions="FillAndExpand" BackgroundColor="#1AE0AA00"/>
+                                <Label HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="pendiente"/>
+                            </StackLayout>
+                        </Frame>
+                        <Frame x:Name="frm_aprobado" TabIndex="3" HasShadow="False" Margin="0,0,0,0" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal">
+                                <Label HorizontalOptions="FillAndExpand" BackgroundColor="#E3FAE4"/>
+                                <Label HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="aprobado"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </Frame>
+
+
+            </StackLayout>
+            <globales:Validar x:Name="P_conexion" IsVisible="{Binding Sinconexion}"  />
+        </Grid>
+    </ContentPage>
+    <ContentPage Title="Comprobación" IconImageSource="comprobar.png">
+        <StackLayout>
+            <Label Text="Solicitudes pendientes comprobar"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,20,0,0"/>
+            <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Margin=" 0,8,0,0">
+                <Entry  x:Name="ent_busc"
+                        HorizontalOptions="FillAndExpand" 
+                        Margin="15,0,0,0"
+                        PropertyChanged="ent_busc_PropertyChanged"/>
+                <ImageButton x:Name="btn_buscar"
+                         HorizontalOptions="Start"
+                         Margin="0,0,15,0"
+                         Source="lupa"
+                         HeightRequest="20"
+                         BackgroundColor="Transparent"
+                         Clicked="btn_buscar_Clicked"
+                            />
+               
+
+            </StackLayout>
+            <Frame   x:Name="frame_comprobar" Grid.Row="2" Grid.ColumnSpan="1" HeightRequest="595" BackgroundColor="White" Padding="0,0,0,0" HasShadow="False">
+                <CollectionView x:Name="cv_comprobar" ItemsSource="{Binding Solicitudes}"  >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame  Padding="5" CornerRadius="12" IsClippedToBounds="False" Margin="0,0,0,10" BackgroundColor="{Binding color}" TabIndex="{Binding IdSolicitud}">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Click_frame_comprobar"/>
+                                </Frame.GestureRecognizers>
+                                <Grid  Padding="15" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width=".2*" />
+                                        <ColumnDefinition Width=".7*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Label  Grid.Column="0"
+                                            FontSize="Large"
+                                            Text="{Binding IdSolicitud}"
+                                            VerticalOptions="Center"
+                                            FontAttributes="Bold"/>
+                                    <Label  Grid.Row="0"
+                                            Grid.Column="1"
+                                            FontSize="18"
+                                            FontAttributes="Bold"
+                                            Text="{Binding Autorizacion}"/>
+                                    <Label  Grid.Row="1"
+                                            Grid.Column="1"
+                                            FontSize="15"
+                                            Text="{Binding Justificacion}"/>
+                                    <StackLayout    Grid.Row="2"
+                                                    Grid.Column="1"
+                                                    Orientation="Horizontal"
+                                                    BackgroundColor="Transparent">
+                                        <Label  HorizontalOptions="Start"
+                                                FontSize="14"
+                                                Text="{Binding Fecha.Date}"/>
+
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Frame> 
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>
