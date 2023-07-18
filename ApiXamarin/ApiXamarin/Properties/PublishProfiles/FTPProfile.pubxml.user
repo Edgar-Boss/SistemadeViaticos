@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAN3d1GkXm/kOw0TLzP25nyAAAAAACAAAAAAADZgAAwAAAABAAAABdzK7r6SoABbQiKI8Dz13PAAAAAASAAACgAAAAEAAAAEeKq6qnhVT7StW8kR3YIR8YAAAAlkG8qWaYbem6xPhdLEryWqq2H76vccAaFAAAAHhA71nnwOqpIAyA3CxQ467f3H2c</EncryptedPassword>
+    <_PublishTargetUrl>ftp://savive-db.mssql.somee.com/ savive-db.mssql.somee.com</_PublishTargetUrl>
+    <History>False|2023-01-30T19:18:43.0805022Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>
